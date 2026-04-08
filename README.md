@@ -157,7 +157,7 @@ reg import "path\to\backup.reg"
 
 ## Why the locked-file problem exists on Windows 11
 
-Many applications hold exclusive write locks on open files. Windows 11 tightened enforcement of these locks, breaking the old trick of right-clicking and compressing a file while it was open.
+Many applications hold exclusive write locks on open files. Windows 11 tightened enforcement of these locks, breaking the Windows 10 behavior that allowed right-clicking and compressing a file while it was open.
 
 **7-Zip's `-ssw` flag** uses the **Volume Shadow Copy Service (VSS)** -- the same mechanism Windows backup tools use -- to create a read-only point-in-time snapshot before reading the file. This bypasses the lock cleanly without interrupting the application.
 
