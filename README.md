@@ -26,7 +26,7 @@ Both options:
 | `MyPart.sldprt` | `REV_K` | checked | `Archive\MyPart_REV_K_2026-04-07.zip` |
 | `MyPart.sldprt` | `REV_K` | unchecked | `Archive\MyPart_REV_K.zip` |
 | `MyPart.sldprt` | *(blank)* | checked | `Archive\MyPart_2026-04-07.zip` |
-| Quick Zip on any file | -- | -- | `Archive\MyPart_2026-04-07.zip` |
+| Quick Zip on any file | | | `Archive\MyPart_2026-04-07.zip` |
 | `my-project\` folder | `v1.4` | checked | `my-project\Archive\my-project_v1.4_2026-04-07.zip` |
 
 The `Archive/` folder is created automatically if it doesn't exist.
@@ -157,7 +157,7 @@ reg import "path\to\backup.reg"
 
 ## Why the locked-file problem exists on Windows 11
 
-Many applications hold exclusive write locks on open files. Windows 11 tightened enforcement of these locks, breaking the Windows 10 behavior that allowed right-clicking and compressing a file while it was open.
+Many applications hold exclusive write locks on open files. Windows 11 tightened enforcement of these locks, breaking the old trick of right-clicking and compressing a file while it was open.
 
 **7-Zip's `-ssw` flag** uses the **Volume Shadow Copy Service (VSS)** -- the same mechanism Windows backup tools use -- to create a read-only point-in-time snapshot before reading the file. This bypasses the lock cleanly without interrupting the application.
 
@@ -166,6 +166,13 @@ Many applications hold exclusive write locks on open files. Windows 11 tightened
 ## Disclaimer
 
 **Use at your own risk.** This software modifies the Windows registry. While all changes are reversible and scoped to the current user, the authors accept no liability for any issues arising from use of this tool. Always maintain your own backups of important data.
+
+---
+
+## Acknowledgments
+
+Built in collaboration with [Claude](https://claude.ai) (Anthropic) --
+Claude was the primary contributor to the code, architecture, and debugging throughout this project.
 
 ---
 
