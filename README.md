@@ -184,4 +184,6 @@ Issues and PRs welcome. Tested on Windows 11 24H2 with SolidWorks 2025.
 
 ## License
 
+see LICENSE file (MIT)
+
 MIT
